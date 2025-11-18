@@ -1,0 +1,1 @@
+export class ServerError extends Error { constructor() { super("Unexpected response from server") }}
