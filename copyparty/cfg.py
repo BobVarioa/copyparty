@@ -302,6 +302,7 @@ flagcats = {
     "client and ux": {
         "grid": "show grid/thumbnails by default",
         "gsel": "select files in grid by ctrl-click",
+        "music": "show the music view by default",
         "sort": "default sort order",
         "nsort": "natural-sort of leading digits in filenames",
         "hsortn": "number of sort-rules to add to media URLs",

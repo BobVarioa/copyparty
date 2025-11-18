@@ -3002,6 +3002,8 @@ class AuthSrv(object):
             vn.js_ls = {
                 "idx": "e2d" in vf,
                 "itag": "e2t" in vf,
+                "dgrid": "grid" in vf,
+                "dmusic": "music" in vf,
                 "dnsort": "nsort" in vf,
                 "dhsortn": vf["hsortn"],
                 "dsort": vf["sort"],
@@ -3043,6 +3045,8 @@ class AuthSrv(object):
                 "dqdel": self.args.qdel,
                 "dgrid": "grid" in vf,
                 "dgsel": "gsel" in vf,
+                # TODO: make incompatible with grid volflag
+                "dmusic": "music" in vf,
                 "dnsort": "nsort" in vf,
                 "dhsortn": vf["hsortn"],
                 "dsort": vf["sort"],
