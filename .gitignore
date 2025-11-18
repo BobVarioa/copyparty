@@ -25,6 +25,11 @@ copyparty.egg-info/
 # apple pls
 .DS_Store
 
+# web
+copyparty/web/package-lock.json
+copyparty/web/node_modules/
+copyparty/web/dist/
+
 # derived
 copyparty/res/COPYING.txt
 copyparty/web/deps/
