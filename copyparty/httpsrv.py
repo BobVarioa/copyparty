@@ -97,7 +97,7 @@ if not hasattr(socket, "AF_UNIX"):
 
 
 def load_jinja2_resource(E: EnvParams, name: str):
-    with load_resource(E, "web/" + name, "r") as f:
+    with load_resource(E, "web/page/" + name, "r") as f:
         return f.read()
 
 

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#{{ tcolor }}" />
+        <title>{{ title }}</title>
+        <link rel="stylesheet" media="screen" href="{{ r }}/.cpr/dist/browser.css?_={{ ts }}" />
+        <link rel="stylesheet" media="screen" href="{{ r }}/.cpr/dist/ui.css?_={{ ts }}" />
+        <link rel="preload" href="{{ r }}/.cpr/tl/eng.browser.json" as="fetch" crossorigin />
+
+        <link rel="stylesheet" href="{{ r }}/.cpr/deps/mini-fa.css?_={{ ts }}" />
+        {{ html_head }} {%- if css %}
+        <link rel="stylesheet" media="screen" href="{{ css }}_={{ ts }}" />
+        {%- endif %}
+    </head>
+    <body>
+        <div id="root">
+            <div class="header">
+                <div class="left">
+                    <button class="icon" id="sidebar-toggle"><i class="fa-bars"></i></button>
+                    <button class="icon" id="view-selector"><i class="fa-list"></i></button>
+                </div>
+                <div class="navbar">
+                    <ul>
+                        <li>
+                            <a href="{{ r }}/?h"><i class="fa-tree"></i></a>
+                        </li>
+                        {%- for n in vpnodes %}
+                        <li><a href="{{ r }}/{{ n[0] }}">{{ n[1] }}</a></li>
+                        {%- endfor %}
+                    </ul>
+                </div>
+                <div class="right">
+                    <button class="icon" id="settings"><i class="fa-gear"></i></button>
+                    <button class="icon" id="login"><i class="fa-arrow-right-to-bracket"></i></button>
+                </div>
+            </div>
+
+            <div id="sidebar">
+                <ul>
+                    <li><a href="{{ r }}/?h">[root]</a></li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <div id="prologue" class="logue"></div>
+
+                <div id="actionbar">
+                    <div class="left">
+                        <button class="icon" id="search"><i class="fa-magnifying-glass"></i></button>
+                        <button class="icon" id="upload"><i class="fa-file-arrow-up"></i></button>
+                        <button class="icon" id="recents"><i class="fa-clock-rotate-left"></i></button>
+                        <button class="icon" id="add_folder"><i class="fa-folder-plus"></i></button>
+                        <button class="icon" id="add_md"><i class="fa-file-pen"></i></button>
+                        <button class="icon" id="download_file"><i class="fa-download"></i></button>
+                        <button class="icon" id="download_folder"><i class="fa-file-zipper"></i></button>
+                    </div>
+                    <div class="right">
+                        <button class="icon" id="trash"><i class="fa-trash"></i></button>
+                        <button class="icon" id="view"><i class="fa-file-lines"></i></button>
+                        <button class="icon" id="rename"><i class="fa-pen"></i></button>
+                        <button class="icon" id="cut"><i class="fa-scissors"></i></button>
+                        <button class="icon" id="copy"><i class="fa-copy"></i></button>
+                        <button class="icon" id="paste"><i class="fa-paste"></i></button>
+                    </div>
+                </div>
+                <table id="files">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+                <div id="grid" class="gone"></div>
+                <div id="music" class="gone"></div>
+
+                <div id="epilogue" class="logue"></div>
+            </div>
+
+            <div class="footerL">
+                <button class="smallicon" id="repl"><i class="fa-terminal"></i></button>
+            </div>
+
+            <div class="footerR"><span id="srv_info">{{ srv_info }}</span></div>
+        </div>
+
+        <div id="modalRoot">
+        </div>
+
+        <script type="module" src="{{ r }}/.cpr/dist/browser.js?_={{ ts }}"></script>
+        {%- if js %}
+        <script src="{{ js }}_={{ ts }}"></script>
+        {%- endif %}
+        <script type="application/json" id="data">
+            {"acct":"{{ cgv.acct }}","ls0":{{ ls0|tojson }},"perms":{{ cgv.perms|tojson }},"readmes":{{ cgv.readmes|tojson }},"cgv1":{{ cgv1 }},"basePath":"{{r}}","favico":"{{ favico }}","ts":"{{ ts }}","logues":{{ logues|tojson }},"sb_lg":"{{ sb_lg }}"}
+        </script>
+    </body>
+</html>

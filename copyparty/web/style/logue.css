@@ -1,0 +1,138 @@
+.mdo>h1:first-child,
+.mdo>h2:first-child,
+.mdo>h3:first-child {
+	margin-top: 1.5rem;
+}
+.mdo {
+	max-width: 52em;
+    margin: 2.5em;
+    margin-top: .5em;
+}
+.mdo.sb,
+.logue.mdo>iframe {
+	max-width: 54em;
+}
+.mdo,
+.mdo * {
+	line-height: 1.5em;
+}
+
+.mdo a {
+	border-radius: .2em;
+	padding: .1em .3em;
+	margin: 0 .1em;
+}
+
+.mdo pre {
+    overflow-x: auto;
+}
+
+.mdo pre, .mdo code {
+	color: var(--code-text);
+	background: var(--code-background);
+	border: .07em solid var(--code-border);
+	border-radius: .2em;
+	padding: .1em .3em;
+	margin: 0 .1em;
+}
+.mdo pre,
+.mdo code,
+.mdo code[class*="language-"],
+.mdo tt {
+	font-family: 'scp', monospace, monospace;
+	font-family: var(--font-mono), 'scp', monospace, monospace;
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+.mdo code {
+	font-size: .96em;
+}
+
+.mdo h1,
+.mdo h2 {
+	line-height: 1.5em;
+}
+.mdo h1 {
+	font-size: 1.7em;
+	border-bottom: .07em solid var(--fg-weak);
+    margin-bottom: .5em;
+}
+.mdo h2 {
+    font-size: 1.5em;
+	font-weight: normal;
+	border-bottom: .07em solid var(--fg-weak);
+	padding-left: .4em;
+    margin-bottom: .5em;
+}
+.mdo h3 {
+    border-bottom: .1em solid #999;
+    margin-bottom: .5em;
+}
+.mdo h1 a, .mdo h3 a, .mdo h5 a,
+.mdo h2 a, .mdo h4 a, .mdo h6 a {
+	color: inherit;
+	display: block;
+	background: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+.mdo ul,
+.mdo ol {
+	padding-left: 1em;
+}
+.mdo ul ul,
+.mdo ul ol,
+.mdo ol ul,
+.mdo ol ol {
+	padding-left: 2em;
+	border-left: .3em solid rgb(68, 68, 68);
+}
+.mdo ul>li {
+	margin: .7em 0;
+	list-style-type: disc;
+}
+.mdo ol>li {
+	margin: .7em 0 .7em 2em;
+}
+.mdo strong {
+	color: var(--strong-text);
+}
+.mdo p>em,
+.mdo li>em,
+.mdo td>em {
+	color: var(--em-text);
+	padding: .1em;
+	border-bottom: .1em solid #bbb;
+}
+.mdo blockquote {
+	font-family: serif;
+	font-family: var(--font-serif), serif;
+	background: #f7f7f7;
+	border: .07em dashed #ccc;
+	padding: 0 2em;
+	margin: 1em 0;
+}
+.mdo small {
+	opacity: .8;
+}
+.mdo pre code {
+	display: block;
+	margin: 0 -.3em;
+	padding: .4em .5em;
+	line-height: 1.1em;
+}
+.mdo table {
+	border-collapse: collapse;
+	margin: 1em 0;
+}
+.mdo th,
+.mdo td {
+	padding: .2em .5em;
+	border: .12em solid #aaa;
+}
+.mdo .mdth,
+.mdo .mdthl,
+.mdo .mdthr {
+	margin: .5em .5em .5em 0;
+}

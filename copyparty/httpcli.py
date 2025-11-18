@@ -1258,7 +1258,7 @@ class HttpCli(object):
                 return self.conn.hsrv.metrics.tx(self)
 
             res_path = "web/" + self.vpath[5:]
-            if res_path in RES:
+            if res_path in RES or re.match(r"web/dist/chunk-[A-Z0-9]+.js", res_path) or re.match(r"web/tl/[a-z]+.browser.json", res_path):
                 ap = self.E.mod_ + res_path
                 if bos.path.exists(ap) or bos.path.exists(ap + ".gz"):
                     return self.tx_file(ap)
@@ -6515,7 +6515,7 @@ class HttpCli(object):
             elif zs:
                 self.log("diskfree(%r): %s" % (abspath, zs), 3)
 
-        srv_infot = "</span> // <span>".join(srv_info)
+        srv_infot = " // ".join(srv_info)
 
         perms = []
         if self.can_read or is_dk:

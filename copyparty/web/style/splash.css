@@ -1,0 +1,158 @@
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+}
+
+:root {
+  color-scheme: dark;
+
+  --fg: #ccc;
+  --fg-max: #fff;
+  --fg2-max: #fff;
+  --fg-weak: #bbb;
+
+  --bg-u6: #4c4c4c;
+  --bg-u5: #444;
+  --bg-u4: #383838;
+  --bg-u3: #333;
+  --bg-u2: #2b2b2b;
+  --bg-u1: #282828;
+  --bg: #222;
+  --bgg: var(--bg);
+  --bg-d1: #1c1c1c;
+  --bg-d2: #181818;
+  --bg-d3: #111;
+  --bg-max: #000;
+
+  --link-background: #057;
+  --link-border: #37a;
+  --link-border-shadow: #8ab;
+}
+
+html {
+  color: var(--fg);
+  background: var(--bgg);
+  font-family: sans-serif;
+  text-shadow: 1px 1px 0px var(--bg-max);
+}
+
+body {
+  display: flex;
+  min-width: 100dvw;
+  min-height: 100dvh;
+
+  justify-content: center;
+  align-items: stretch;
+}
+
+
+#root {
+  display: grid;
+  grid-template-rows: 5% 90% 5%;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+
+  grid-template-areas:
+    "headerL welcome welcome headerR"
+    ". main main ."
+    "footerL footerL footerR footerR";
+
+  padding: 2em;
+  width: 100%;
+}
+
+@media (max-width: 950px) {
+  #root {
+    grid-template-areas:
+      "headerL welcome welcome headerR"
+      "main main main main"
+      "footerL footerL footerR footerR";
+  }
+}
+
+@media (max-width: 700px) {
+  .content {
+    justify-content: normal !important;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.headerL {
+  display: flex;
+  grid-area: headerL;
+}
+
+.welcome {
+  grid-area: welcome;
+  justify-self: center;
+  text-align: center;
+}
+
+.headerR {
+  grid-area: headerR;
+  justify-self: right;
+}
+
+.content {
+  grid-area: main;
+  display: flex;
+  justify-content: space-around;
+  padding: 1em;
+}
+
+.content > * {
+  justify-self: center;
+}
+
+.content > * > ul {
+  padding-left: 2em;
+}
+
+.volumes > li > a {
+  display: inline-block;
+}
+
+.footerL {
+  grid-area: footerL;
+}
+
+.footerR {
+  grid-area: footerR;
+  justify-self: right;
+}
+
+li a {
+	color: var(--fg-max);
+  background: var(--link-background);
+  border-color: var(--link-border);
+	text-decoration: none;
+	white-space: nowrap;
+	border-bottom: 1px solid var(--link-border-shadow);
+	border-radius: .2em;
+	padding: .2em .6em;
+	margin: 0 .3em;
+}
+
+.icon {
+  padding-block: 0;
+  padding-inline: 0;
+  border: none;
+  font-size: 1.5em;
+  background: none;
+  padding: 0.1em;
+}
+
+.icon > i {
+  padding: 0.35em;
+  width: 27px;
+  height: 27px;
+}
+
+.icon:hover > i {
+  background-color: var(--bg-u4);
+  border-radius: 50%;
+}
+

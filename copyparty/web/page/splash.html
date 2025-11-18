@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#{{ tcolor }}">
+    <title>{{ title }}</title>
+	<link rel="stylesheet" media="screen" href="{{ r }}/.cpr/dist/splash.css?_={{ ts }}">
+	<link rel="stylesheet" href="{{ r }}/.cpr/deps/mini-fa.css?_={{ ts }}">
+{{ html_head }}
+	{%- if css %}
+	<link rel="stylesheet" media="screen" href="{{ css }}_={{ ts }}">
+	{%- endif %}
+    <script type="application/json" id="data">
+    
+    </script>
+</head>
+<body>
+    <div id="root">
+        <div class="headerL">
+            <button class="icon" id="settings"><i class="fa fa-gear"></i></button>
+            <button class="icon" id="recent"><i class="fa fa-clock-rotate-left"></i></button>
+        </div>
+        <div class="welcome">
+			{%- if this.uname == '*' %}
+            <p>howdy stranger</p>
+            <sub>(you're not logged in)</sub>
+			{%- else %}
+		    <p><span id="m">welcome back,</span> <strong id="un">{{ this.uname|e }}</strong></p>
+			{%- endif %}
+
+        </div>
+        <div class="headerR">
+            <button class="icon" id="login"><i class="fa fa-arrow-right-to-bracket"></i></button>
+        </div>
+
+        <div class="content">
+            {%- if rvol %}
+            <div class="browse">
+                <h1>You can browse:</h1>
+                <ul class="volumes">
+                    {%- for mp in rvol %} 
+                    <li><a href="{{ r }}{{ mp }}{{ url_suf }}">{{ mp }}</a></li>
+                    {%- endfor %}
+                </ul>
+            </div>
+			{%- endif %}
+            {%- if wvol %}
+            <div class="upload ">
+                <h1>You can upload to:</h1>
+                <ul class="volumes">
+                    {%- for mp in wvol %}
+                    <li><a href="{{ r }}{{ mp }}{{ url_suf }}">{{ mp }}</a></li>
+                    {%- endfor %}
+                </ul>
+            </div>
+			{%- endif %}
+        </div>
+
+        <div class="footerL">
+            <button class="icon" id="repl"><i class="fa-solid fa-terminal"></i></button>
+        </div>
+
+        <div class="footerR">
+            <span id="pb"><span>powered by</span> <a href="{{ this.args.pb_url }}">copyparty {{ver}}</a></span>
+        </div>
+    </div>
+
+	{%- if js %}
+	<script src="{{ js }}_={{ ts }}"></script>
+	{%- endif %}
+</body>
+</html>
