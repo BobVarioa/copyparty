@@ -2,7 +2,7 @@
 set -e
 
 orig_css="$(find /z/fontawesome-fre* -name fontawesome.css | head -n 1)"
-orig_woff="$(find /z/fontawesome-fre* -name fa-solid-900.woff | head -n 1)"
+orig_woff="$(find /z/fontawesome-fre* -name fa-solid-900.woff2 | head -n 1)"
 
 # first grab the copyright meme
 awk '1; / *\*\// {exit}' <"$orig_css" >/z/dist/mini-fa.css
@@ -13,8 +13,14 @@ awk '/^:add/ {exit} 1' </z/mini-fa.css >>/z/dist/mini-fa.css
 # then take the list of icons to include
 awk 'o; /^:add/ {o=1}' </z/mini-fa.css |
 while IFS= read -r g; do
-    # and grab them from the upstream css
-    awk 'o{gsub(/[ ;]+/,"");print;exit} /^\.fa-'$g':before/ {o=1;printf "%s",$0}' <"$orig_css"
+    awk -v g="$g" '
+    $0 ~ ("^\\.fa-" g " \\{") {
+        getline nxt
+        match(nxt, /("\\[0-9A-Fa-f]+")/)
+        print ".fa-" g ":before {content:" substr(nxt, RSTART, RLENGTH) "}"
+        exit
+    }
+    ' "$orig_css"
 done >>/z/dist/mini-fa.css
 
 # expecting this input btw:
